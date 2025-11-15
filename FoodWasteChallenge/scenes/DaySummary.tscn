@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://scripts/DaySummary.gd" type="Script" id="1_8bsyh"]
+
+[node name="DaySummary" type="Window"]
+position = Vector2i(360, 120)
+size = Vector2i(500, 420)
+visible = false
+wrap_controls = true
+unresizable = true
+title = "Day Summary"
+script = ExtResource("1_8bsyh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+anchors_preset = 8
+anchor_left = 0.06
+anchor_top = 0.06
+anchor_right = 0.94
+anchor_bottom = 0.94
+
+[node name="Header" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Day Summary"
+vertical_alignment = 1
+horizontal_alignment = 1
+unique_name_in_owner = true
+
+[node name="UsedLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Food Used:"
+
+[node name="UsedList" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tab_stops = PackedFloat32Array(40.0)
+unique_name_in_owner = true
+
+[node name="WastedLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Food Wasted:"
+
+[node name="WastedList" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+unique_name_in_owner = true
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Score Change: 0"
+horizontal_alignment = 1
+unique_name_in_owner = true
+
+[node name="EventLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Event: None"
+horizontal_alignment = 1
+unique_name_in_owner = true
+
+[node name="NextDayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Next Day"
+unique_name_in_owner = true

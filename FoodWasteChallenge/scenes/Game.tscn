@@ -1,0 +1,228 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource path="res://scripts/GameManager.gd" type="Script" id="1_m6hnu"]
+[ext_resource path="res://scripts/InventoryUI.gd" type="Script" id="2_m6hnu"]
+[ext_resource path="res://scripts/RecipeUI.gd" type="Script" id="3_m6hnu"]
+[ext_resource path="res://assets/icons/pantry.svg" type="Texture2D" id="4_a8r8n"]
+[ext_resource path="res://assets/icons/fridge.svg" type="Texture2D" id="5_uvqnu"]
+[ext_resource path="res://assets/icons/recipes.svg" type="Texture2D" id="6_hfy6c"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_m6hnu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.0901961, 0.0980392, 0.12549, 1)
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.03
+anchor_top = 0.03
+anchor_right = 0.97
+anchor_bottom = 0.97
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_minimum_size = Vector2(800, 0)
+
+[node name="TopBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="DayLabel" type="Label" parent="MarginContainer/VBoxContainer/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Day 1 of 7"
+unique_name_in_owner = true
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+text = "Score: 0"
+unique_name_in_owner = true
+
+[node name="MainContent" type="HSplitContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventoryPanel" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainContent"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_m6hnu")
+unique_name_in_owner = true
+
+[node name="InventoryHeading" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MainContent/InventoryPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InventoryIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/MainContent/InventoryPanel/InventoryHeading"]
+layout_mode = 2
+size_flags_horizontal = 1
+texture = ExtResource("4_a8r8n")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="InventoryTitle" type="Label" parent="MarginContainer/VBoxContainer/MainContent/InventoryPanel/InventoryHeading"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Inventory"
+
+[node name="InventorySeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/MainContent/InventoryPanel"]
+layout_mode = 2
+
+[node name="PantryHeading" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MainContent/InventoryPanel"]
+layout_mode = 2
+
+[node name="PantryIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/MainContent/InventoryPanel/PantryHeading"]
+layout_mode = 2
+texture = ExtResource("4_a8r8n")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="PantryLabel" type="Label" parent="MarginContainer/VBoxContainer/MainContent/InventoryPanel/PantryHeading"]
+layout_mode = 2
+text = "Pantry"
+
+[node name="PantryList" type="ItemList" parent="MarginContainer/VBoxContainer/MainContent/InventoryPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+unique_name_in_owner = true
+
+[node name="FridgeHeading" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MainContent/InventoryPanel"]
+layout_mode = 2
+
+[node name="FridgeIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/MainContent/InventoryPanel/FridgeHeading"]
+layout_mode = 2
+texture = ExtResource("5_uvqnu")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="FridgeLabel" type="Label" parent="MarginContainer/VBoxContainer/MainContent/InventoryPanel/FridgeHeading"]
+layout_mode = 2
+text = "Fridge"
+
+[node name="FridgeList" type="ItemList" parent="MarginContainer/VBoxContainer/MainContent/InventoryPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+unique_name_in_owner = true
+
+[node name="RecipePanel" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainContent"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_m6hnu")
+unique_name_in_owner = true
+
+[node name="RecipesHeading" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel"]
+layout_mode = 2
+
+[node name="RecipesIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel/RecipesHeading"]
+layout_mode = 2
+texture = ExtResource("6_hfy6c")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="RecipesTitle" type="Label" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel/RecipesHeading"]
+layout_mode = 2
+text = "Available Recipes"
+
+[node name="RecipeScroll" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RecipeList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel/RecipeScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+unique_name_in_owner = true
+
+[node name="MealSlotsTitle" type="Label" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel"]
+layout_mode = 2
+text = "Today's Plan"
+
+[node name="MealSlots" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+unique_name_in_owner = true
+
+[node name="Breakfast" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel/MealSlots"]
+layout_mode = 2
+
+[node name="BreakfastLabel" type="Label" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel/MealSlots/Breakfast"]
+layout_mode = 2
+text = "Breakfast:"
+size_flags_horizontal = 3
+
+[node name="BreakfastValue" type="Label" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel/MealSlots/Breakfast"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+
+[node name="BreakfastClear" type="Button" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel/MealSlots/Breakfast"]
+layout_mode = 2
+text = "Clear"
+
+[node name="Lunch" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel/MealSlots"]
+layout_mode = 2
+
+[node name="LunchLabel" type="Label" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel/MealSlots/Lunch"]
+layout_mode = 2
+text = "Lunch:"
+size_flags_horizontal = 3
+
+[node name="LunchValue" type="Label" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel/MealSlots/Lunch"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+
+[node name="LunchClear" type="Button" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel/MealSlots/Lunch"]
+layout_mode = 2
+text = "Clear"
+
+[node name="Dinner" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel/MealSlots"]
+layout_mode = 2
+
+[node name="DinnerLabel" type="Label" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel/MealSlots/Dinner"]
+layout_mode = 2
+text = "Dinner:"
+size_flags_horizontal = 3
+
+[node name="DinnerValue" type="Label" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel/MealSlots/Dinner"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+
+[node name="DinnerClear" type="Button" parent="MarginContainer/VBoxContainer/MainContent/RecipePanel/MealSlots/Dinner"]
+layout_mode = 2
+text = "Clear"
+
+[node name="BottomBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="EndDayButton" type="Button" parent="MarginContainer/VBoxContainer/BottomBar"]
+layout_mode = 2
+text = "End Day"
+unique_name_in_owner = true
+
+[node name="SummaryButton" type="Button" parent="MarginContainer/VBoxContainer/BottomBar"]
+layout_mode = 2
+text = "Show Summary"
+unique_name_in_owner = true

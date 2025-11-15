@@ -1,0 +1,43 @@
+# Godot 4.x
+.godot/
+.import/
+
+# Godot-specific files
+*.translation
+export_presets.cfg
+
+# Mono (C#) build artifacts
+.mono/
+data_*/
+mono_crash.*.json
+
+# System and editor files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Exports and builds
+export/
+*.x86_64
+*.x86
+*.app
+*.exe
+*.pck
+*.zip
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+
